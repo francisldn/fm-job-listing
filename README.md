@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Job listings with filtering
 
-## Getting Started
+![Design preview for the Job listings with filtering coding challenge](./design/desktop-preview.jpg)
+## The challenge
 
-First, run the development server:
+User requirements for this challenge:
 
-```bash
-npm run dev
-# or
-yarn dev
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Filter job listings based on the categories
+## Building the project
+
+The project is built using the following:
+1. NextJS / React
+2. [Tailwind CSS](https://tailwindcss.com/)
+3. Typescript
+
+[Code](https://github.com/francisldn/fm-job-listing)
+
+[Frontend](https://fm-job-listing.vercel.app/)
+## What I have learnt
+#### NextJS framework
+* This is my first time using NextJS so I spent some time initially to learn about the details of the framework. One useful thing I learnt was how to create the ``Layout`` component for NavBar and nest the ``pageProps`` within the ``Layout`` component.
+* The main challenge in NextJS for me is how to use various data fetching components such as ``getStaticProps``, ``getServerSideProps`` and ``getStaticPaths`` which I don't get to use in this project but hopefully I will for the next project.
+* I find that ``<Image>`` which is the native NextJS img component is not very easy nor flexible to use, so I have resorted to using ``<img>`` which offers more flexibility in terms of CSS styling.
+##### Tailwind CSS
+* This is my first time using Tailwind CSS and I really love it - for the ease of use, flexibility and responsiveness. As this is my first time using Tailwind, I also spent some time to familiarize myself with the various utilities offered by Tailwind. There was an initial learning curve in knowing the various class names that are available but it is relatively easy to pick up. 
+* It is also convenient to create re-usable CSS classes in Tailwind in the normal CSS file
+* To define custom colors, fonts or other settings, it is possible to do so in ``tailwind.config.js``
+* Specifying the layout and styling for various screen-sizes is really easy with Tailwind without having to write media queries, which saves a lot of time
+#### Typescript
+* I find that using Typescript instead of JS has slowed down my development time significantly due to the need to resolve Typescript errors.
+* To resolve ``MouseEvent`` type error, one can cast the ``event.target`` as an ``Element`` or ``HTMLElement``.
+#### Search function
+* To implement the incremental search function, I discovered ``Array.includes`` function which makes it really easy to filter with multiple strings. 
+Example of the code as below:
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+for(let i=0; i<newList.length; i++) {
+      newFilterData = newFilterData.filter(({tags}) => tags.includes(newList[i]))
+    }
+```

@@ -58,7 +58,6 @@ const Home: NextPage = () => {
   const removeFilter = (e:React.MouseEvent) => {
     const target = e.target as HTMLElement;
     const parent = target.offsetParent as HTMLElement
-    console.log(parent.innerText)
     let newList = filterList.filter(tag => tag !== parent.innerText)
     setFilterList(newList);
     if(newList.length===0) {
