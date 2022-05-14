@@ -23,7 +23,7 @@ The project is built using the following:
 * This is my first time using NextJS so I spent some time initially to learn about the details of the framework. One useful thing I learnt was how to create the ``Layout`` component for NavBar and nest the ``pageProps`` within the ``Layout`` component.
 * The main challenge in NextJS for me is how to use various data fetching components such as ``getStaticProps``, ``getServerSideProps`` and ``getStaticPaths`` which I don't get to use in this project but hopefully I will for the next project.
 * I find that ``<Image>`` which is the native NextJS img component is not very easy nor flexible to use, so I have resorted to using ``<img>`` which offers more flexibility in terms of CSS styling.
-##### Tailwind CSS
+#### Tailwind CSS
 * This is my first time using Tailwind CSS and I really love it - for the ease of use, flexibility and responsiveness. As this is my first time using Tailwind, I also spent some time to familiarize myself with the various utilities offered by Tailwind. There was an initial learning curve in knowing the various class names that are available but it is relatively easy to pick up. 
 * It is also convenient to create re-usable CSS classes in Tailwind in the normal CSS file
 * To define custom colors, fonts or other settings, it is possible to do so in ``tailwind.config.js``
