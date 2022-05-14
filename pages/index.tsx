@@ -33,7 +33,7 @@ const Home: NextPage = () => {
   const [filterData, setFilterData] = useState<JobProp[]>(newData)
   let newFilterData: JobProp[] = Object.assign(newData)
   
-  const addFilter = (e: React.MouseEvent<HTMLSpanElement,EventTarget>) => {
+  const addFilter = (e: React.MouseEvent) => {
     let newList: string[] = [];
     const target = e.target as HTMLElement;
     if(filterList.indexOf(target.innerText)=== -1) {
