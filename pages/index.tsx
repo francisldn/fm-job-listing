@@ -55,7 +55,7 @@ const Home: NextPage = () => {
     
   
   
-  const removeFilter = (e:React.MouseEvent<HTMLDivElement,MouseEvent>) => {
+  const removeFilter = (e:React.MouseEvent) => {
     const target = e.target as HTMLElement;
     const parent = target.offsetParent as HTMLElement
     console.log(parent.innerText)
