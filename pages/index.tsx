@@ -19,9 +19,8 @@ interface JobProp {
     tags: string[],
 }
 
-
-
 const Home: NextPage = () => {
+
   const [isSearch, setIsSearch] = useState(false)
   const [filterList, setFilterList] = useState<string[]>([])
 
