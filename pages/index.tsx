@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
-import styles from '../styles/Home.module.css'
 import data from '../data.json';
-import {useState, SetStateAction} from 'react';
+import {useState} from 'react';
 
 interface JobProp {
     id: number,
@@ -31,13 +30,14 @@ const Home: NextPage = () => {
   newData.map((advert) => 
     advert.tags = [advert.role, advert.level,...advert.languages, ...advert.tools]
   )
-  const [filterData, setFilterData] = useState<SetStateAction<JobProp[]>>(newData)
+  const [filterData, setFilterData] = useState<JobProp[]>(newData)
   let newFilterData: JobProp[] = Object.assign(newData)
   
-  const addFilter = (e) => {
+  const addFilter = (e: React.MouseEvent<HTMLSpanElement,EventTarget>) => {
     let newList: string[] = [];
-    if(filterList.indexOf(e.target.firstChild.data)=== -1) {
-      newList.push(...filterList, e.target.firstChild.data)
+    const target = e.target as HTMLElement;
+    if(filterList.indexOf(target.innerText)=== -1) {
+      newList.push(...filterList, target.innerText)
     } else {
       newList.push(...filterList);
     }
@@ -55,8 +55,11 @@ const Home: NextPage = () => {
     
   
   
-  const removeFilter = (e) => {
-    let newList = filterList.filter(tag => tag !== e.target.offsetParent.firstChild.data)
+  const removeFilter = (e:React.MouseEvent<HTMLDivElement,EventTarget>) => {
+    const target = e.target as HTMLElement;
+    const parent = target.offsetParent as HTMLElement
+    console.log(parent.innerText)
+    let newList = filterList.filter(tag => tag !== parent.innerText)
     setFilterList(newList);
     if(newList.length===0) {
       setIsSearch(false);
@@ -111,7 +114,7 @@ const Home: NextPage = () => {
           <hr className="border-t-[3px] mr-10"/>
           <div className="flex flex-wrap gap-4 mr-10 sm:content-center sm:justify-end mt-4">
             {advert.tags.map(
-              tag => <span className="spanTag" key={tag} onClick={(e) => addFilter(e)}>{tag}</span>)}
+              (tag) => <span className="spanTag" key={tag} onClick={(e) => addFilter(e)}>{tag}</span>)}
           </div>
         </div>
       ))}
