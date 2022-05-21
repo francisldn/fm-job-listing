@@ -93,7 +93,7 @@ const Home: NextPage = () => {
     <div className="flex flex-col gap-8 bg-rgb(92, 165, 165,10) max-w-5xl mx-14 sm:mx-auto mt-12 shadow-[rgba(92, 165, 165,100%)] drop-shadow-lg">
       {filterData.map((advert) => (
         <div className={`flex rounded-lg flex-col sm:flex-row pl-3.5 pt-3 pb-3 border-2 bg-white ${advert.featured && "border-l-8 border-l-[#5CA5A5]"}`} key={advert.id}>
-          <div className="absolute -mt-9 sm:relative  flex h-12 w-12 rounded-full sm:h-24 sm:w-24 ml-2 sm:self-center place-self-start sm:mx-6">
+          <div className="absolute -mt-11 sm:relative  flex h-12 w-12 rounded-full sm:h-24 sm:w-24 ml-2 sm:self-center place-self-start sm:mx-6">
             <img src={advert.logo} alt="company logo" className="w-fit h-fit"/>
           </div>
           <div className="pt-2 pb-2 sm: flex-1">
